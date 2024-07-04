@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Programming Courses</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+            background-color: #343a40;
+            color: #fff;
+            margin: 0;
+            font-size: 32px;
+        }
+
+        .course-info {
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 20px;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .course-info:hover {
+            background-color: #e1e1e1;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        h2 {
+            color: #dc3545;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .spans {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        span {
+            padding: 8px;
+            background-color: #dc3545;
+            color: #fff;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .lower-section {
+            background-color: #fff;
+            padding: 50px 0;
+            border-radius: 20px;
+            margin: 40px 20px;
+            color: #333;
+            text-align: center;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease-in-out forwards;
+        }
+        /* Button styles */
+        .cta-button {
+            background-color: #ff5722;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #e64a19;
+        }
+    </style>
+</head>
+<body>
+    <h1>C++ Programming Courses</h1>
+
+    <!-- Udemy Course 1 -->
+    <div class="course-info">
+        <h2>{{ udemy_1.title }}</h2>
+        <div class="spans">
+            {% for span in udemy_1.spans %}
+                <span>{{ span }}</span>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Udemy Course 2 -->
+    <div class="course-info">
+        <h2>{{ udemy_2.title }}</h2>
+        <div class="spans">
+            {% for span in udemy_2.spans %}
+                <span>{{ span }}</span>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Coursera Specialization -->
+    <div class="course-info">
+        <h2>{{ coursera.title }}</h2>
+        <div class="spans">
+            {% for span in coursera.spans %}
+                <span>{{ span }}</span>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Codecademy Course -->
+    <div class="course-info">
+        <h2>{{ codecademy.title }}</h2>
+        <div class="spans">
+            {% for span in codecademy.spans %}
+                <span>{{ span }}</span>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Lower Section -->
+        <div class="lower-section fade-in">
+            <h2>Ready to Start Learning?</h2>
+            <p>Explore our C programming courses and take your skills to the next level!</p>
+            <button class="cta-button">Explore Courses</button>
+        </div>
+</body>
+</html>

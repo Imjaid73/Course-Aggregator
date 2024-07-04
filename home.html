@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Aggregator Home</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .search-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        h1 {
+            color: #007bff;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .logo {
+            width: 100px;
+            height: auto;
+        }
+
+        /* Styles for sidebar */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -250px; /* Initially hide sidebar */
+            width: 250px;
+            height: 100%;
+            background-color: #343a40;
+            color: white;
+            padding: 20px;
+            transition: left 0.3s ease;
+        }
+
+        .sidebar ul {
+            padding: 0;
+            list-style-type: none;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .sidebar-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 999; /* Ensure button is above other elements */
+        }
+    </style>
+</head>
+<body>
+    <button class="sidebar-toggle" id="sidebarToggle">&#8942;</button>
+    <div class="sidebar" id="sidebar">
+        <h2>Roadmaps</h2>
+        <ul>
+            <li><a href="#">Front End Web Developement</a></li>
+            <li><a href="#">Cloud Computing</a></li>
+            <li><a href="#">Cyber Security</a></li>
+        </ul>
+    </div>
+    <div class="search-container">
+        <h1>Welcome  Course Nest</h1>
+        <form action="{{ url_for('search_results') }}" method="GET">
+            <label for="search">Search for a Course:</label>
+            <input type="text" id="search" name="query" placeholder="Enter course name...">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    <script>
+        // JavaScript to toggle sidebar
+        document.getElementById('sidebarToggle').addEventListener('click', function() {
+            var sidebar = document.getElementById('sidebar');
+            if (sidebar.style.left === '0px') {
+                sidebar.style.left = '-250px';
+            } else {
+                sidebar.style.left = '0px';
+            }
+        });
+    </script>
+</body>
+</html>

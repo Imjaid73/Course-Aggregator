@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FullStack Web Development Courses</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome for icons -->
+    <style>
+        /* Main header styles */
+        header {
+            background-color: #f8f9fa; /* Light gray */
+            color: #333;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        /* Course info styles */
+        .course-info {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .course-info:hover {
+            transform: translateY(-5px);
+        }
+
+        .course-info h2 {
+            color: #4d4d4d; /* Dark gray */
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .spans {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .spans span {
+            padding: 8px;
+            background-color: #6c757d; /* Gray */
+            color: #fff; /* White */
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .learner-enrolled {
+            color: #28a745; /* Green */
+            font-weight: bold;
+        }
+
+        /* Lower section styles */
+        .lower-section {
+            background-color: #f8f9fa; /* Light gray */
+            padding: 50px 0;
+            text-align: center;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .lower-section h2 {
+            color: #4d4d4d; /* Dark gray */
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .lower-section p {
+            color: #555;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            background-color: #dc3545; /* Red */
+            color: #fff; /* White */
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-transform: uppercase;
+            outline: none; /* Remove button outline */
+        }
+
+        .cta-button:hover {
+            background-color: #c82333; /* Slightly darker red */
+        }
+
+        /* Animations */
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* JavaScript-powered animation class */
+        .animated {
+            animation-fill-mode: both;
+            animation-duration: 1s;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>FullStack Web Development Courses</h1>
+    </header>
+
+    <div class="container">
+        <!-- Courses Section -->
+        <div class="course-grid">
+            <!-- Udemy Course 1 -->
+            <div class="course-info animated slideInLeft">
+                <h2>{{ udemy_1.title }}</h2>
+                <div class="spans">
+                    {% for span in udemy_1.spans %}
+                        <span>{{ span }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Udemy Course 2 -->
+            <div class="course-info animated slideInLeft" style="animation-delay: 0.2s;">
+                <h2>{{ udemy_2.title }}</h2>
+                <div class="spans">
+                    {% for span in udemy_2.spans %}
+                        <span>{{ span }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Coursera Specialization -->
+            <div class="course-info animated slideInLeft" style="animation-delay: 0.4s;">
+                <h2>{{ coursera.title }}</h2>
+                <div class="spans">
+                    {% for span in coursera.spans %}
+                        <span>{{ span }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Codecademy Course -->
+            <div class="course-info animated slideInLeft" style="animation-delay: 0.6s;">
+                <h2>{{ codecademy.title }}</h2>
+                <div class="spans">
+                    {% for span in codecademy.spans %}
+                        <span>{{ span }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Lower Section -->
+        <div class="lower-section animated slideInUp" style="animation-delay: 0.8s;">
+            <h2>Ready to Start Learning?</h2>
+            <p>Explore our FullStack Web Development courses and take your skills to the next level!</p>
+            <button class="cta-button">Explore Courses <i class="fas fa-arrow-right"></i></button> <!-- Added arrow icon -->
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for button animation
+        const button = document.querySelector('.cta-button');
+        button.addEventListener('mouseover', function() {
+            this.style.transform = 'translateY(-3px)';
+        });
+        button.addEventListener('mouseout', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    </script>
+</body>
+</html>

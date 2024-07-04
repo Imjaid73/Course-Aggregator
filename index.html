@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Programming Courses</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* Reset */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Styles */
+        header {
+            text-align: center;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            color: #fff;
+            padding: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+
+        /* Course Styles */
+        .course-info {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: transform 0.3s ease-in-out;
+            margin-bottom: 20px;
+        }
+
+        .course-info:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            color: #3498db;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .spans {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        span {
+            padding: 8px;
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .title-info {
+            color: #555;
+        }
+
+        .learner-enrolled {
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        /* Additional Styles for Lower Section */
+        .lower-section {
+            background-color: #4a90e2;
+            background-image: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.5) 100%);
+            padding: 50px 0;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            color: #fff;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lower-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .lower-section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            padding: 12px 24px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>C Programming Courses</h1>
+    </header>
+
+    <div class="container">
+        <!-- Courses Section -->
+        <div class="course-grid">
+            <!-- Udemy Course 1 -->
+            <div class="course-info">
+                <h2>{{ udemy_1.title }}</h2>
+                <div class="spans">
+                    {% for span in udemy_1.spans %}
+                        <span>{{ span }}</span>
+                    {% endfor %}
+                </div>
+                <p class="title-info">{{ udemy_1.title_info }}</p>
+                <p class="learner-enrolled">{{ udemy_1.learner_enrolled }}</p>
+            </div>
+
+            <!-- Udemy Course 2 -->
+            <div class="course-info">
+                <h2>{{ udemy_2.title }}</h2>
+                <div class="spans">
+                    {% for span in udemy_2.spans %}
+                        <span>{{ span }}</span>
+                    {% endfor %}
+                </div>
+                <p class="title-info">{{ udemy_2.title_info }}</p>
+                <p class="learner-enrolled">{{ udemy_2.learner_enrolled }}</p>
+            </div>
+
+            <!-- Coursera Specialization 1 -->
+            <div class="course-info">
+                <h2>{{ coursera_1.title }}</h2>
+                <div class="spans">
+                    {% for span in coursera_1.spans %}
+                        <span>{{ span }}</span>
+                    {% endfor %}
+                </div>
+                <p class="title-info">{{ coursera_1.title_info }}</p>
+                <p class="learner-enrolled">{{ coursera_1.learner_enrolled }}</p>
+            </div>
+
+            <!-- Coursera Specialization 2 -->
+            <div class="course-info">
+                <h2>{{ coursera_2.title }}</h2>
+                <div class="spans">
+                    {% for span in coursera_2.spans %}
+                        <span>{{ span }}</span>
+                    {% endfor %}
+                </div>
+                <p class="title-info">{{ coursera_2.title_info }}</p>
+                <p class="learner-enrolled">{{ coursera_2.learner_enrolled }}</p>
+            </div>
+
+            <!-- Swayam Course -->
+            <div class="course-info">
+                <h2>{{ swayam.title }}</h2>
+                <div class="spans">
+                    {% for span in swayam.spans %}
+                        <span>{{ span }}</span>
+                    {% endfor %}
+                </div>
+                <p class="title-info">{{ swayam.title_info }}</p>
+                <p class="learner-enrolled">{{ swayam.learner_enrolled }}</p>
+            </div>
+        </div>
+
+        <!-- Lower Section -->
+        <div class="lower-section fade-in">
+            <h2>Ready to Start Learning?</h2>
+            <p>Explore our C programming courses and take your skills to the next level!</p>
+            <button class="cta-button">Explore Courses</button>
+        </div>
